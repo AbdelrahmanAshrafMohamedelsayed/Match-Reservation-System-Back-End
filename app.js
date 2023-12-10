@@ -10,6 +10,8 @@ const compression = require('compression');
 const cors = require('cors');
 const ErrorHandling = require('./util/ErrorHandling');
 const ErrorHandlingFunc = require('./controllers/errorControllers');
+const userRouter = require('./routes/userRoutes');
+const matchRouter = require('./routes/matchRoutes');
 
 // const corsOptions = {
 //   origin: '*',
@@ -18,7 +20,6 @@ const ErrorHandlingFunc = require('./controllers/errorControllers');
 // };
 const app = express();
 // app.use(cors(corsOptions));
-const userRouter = require('./routes/userRoutes');
 
 app.use(cors());
 // walid
@@ -102,6 +103,7 @@ app.use((req, res, next) => {
 });
 // 3) ROUTES
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/matches', matchRouter);
 // 4) Handling Unhandled Routes
 app.all('*', (req, res, next) => {
   // res.status(404).json({

@@ -4,9 +4,20 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
-    required: [true, 'A user must have a name']
+    required: [true, 'A user must have a name'],
+    unique: [true, 'This username is already taken'],
+  },
+  firstName: {
+    type: String,
+    required: [true, 'A user must have a first name'],
+    validate : [validator.isAlpha, 'A user must have a first name that contains only letters']
+  },
+  lastName: {
+    type: String,
+    required: [true, 'A user must have a first name'],
+    validate : [validator.isAlpha, 'A user must have a first name that contains only letters']
   },
   email: {
     type: String,
@@ -17,13 +28,22 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['user', 'guide', 'lead-guide', 'admin'],
+    enum: ['user', 'manager', 'admin'],
     default: 'user'
   },
   photo: {
     // the user photo
     type: String,
     default: 'default.jpg'
+  },
+  birthDate: {
+    type: Date,
+  },
+  city:{
+    type: String,
+  },
+  address:{
+    type: String,
   },
   password: {
     type: String,
