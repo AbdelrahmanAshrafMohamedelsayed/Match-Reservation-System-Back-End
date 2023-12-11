@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema({
   },
   lastName: {
     type: String,
-    required: [true, 'A user must have a first name'],
-    validate : [validator.isAlpha, 'A user must have a first name that contains only letters']
+    required: [true, 'A user must have a last name'],
+    validate : [validator.isAlpha, 'A user must have a last name that contains only letters']
   },
   email: {
     type: String,
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['user', 'manager', 'admin'],
+    enum: ['user' /* fan */, 'manager', 'admin'],
     default: 'user'
   },
   photo: {
@@ -70,6 +70,21 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
     select: false // never show the active property in any output
+  },
+  approved: {
+    // this is used to approve new users as an authority.
+    type: Boolean,
+    default: false,
+  },
+  gender: {
+    type: String,
+    required: [true, 'Gender is required.'],
+    validate: {
+      validator: function(value) {
+        return ['f', 'm'].includes(value.toLowerCase());
+      },
+      message: 'Gender must be either "f" or "m".'
+    }
   }
 });
 userSchema.pre('save', async function(next) {

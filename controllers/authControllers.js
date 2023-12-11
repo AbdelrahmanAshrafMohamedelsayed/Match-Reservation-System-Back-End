@@ -8,7 +8,6 @@ const ErrorHandling = require('./../util/ErrorHandling');
 const Email = require('./../util/email');
 
 const signToken = id => {
-  // console.log('🔥🔥🔥🔥🔥🔥', process.env.JWT_EXPIRES_IN);
   return jwt.sign({ id: id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN
   }); // create the token
@@ -38,13 +37,21 @@ const createSendToken = (user, statusCode, res) => {
   });
 };
 exports.signup = catchAsync(async (req, res, next) => {
+  
   // const user = await User.create(req.body); // create a new document in the collection 'User' // it's good but not secure
 
   const user = await User.create({
-    name: req.body.name,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     email: req.body.email,
+    username: req.body.username,
     password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm
+    passwordConfirm: req.body.passwordConfirm,
+    gender: req.body.gender,
+    birthDate: req.body.birthDate,
+    city: req.body.city,
+    address: req.body.address,
+    role: req.body.role,
   }); // create a new document in the collection 'User'
   // create the token and send it to the client and make him login
   // const token = signToken(user._id);
@@ -56,17 +63,10 @@ exports.signup = catchAsync(async (req, res, next) => {
   //   }
   // });
 
-  // send the welcome email
-  const url = `${process.env.FRONTEND_URL}/me`;
-  // console.log(url);
-  await new Email(user, url).sendWelcome();
-  // send the welcome email
-
   createSendToken(user, 201, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
-  // console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥');
   const { email, password } = req.body; // get the email and password from the request body
   // 1) Check if email and password exist
   if (!email || !password) {
@@ -75,9 +75,6 @@ exports.login = catchAsync(async (req, res, next) => {
   // 2) Check if user exists && password is correct
   // we need to select the password because it is not selected by default , + means select
   const user = await User.findOne({ email }).select('+password'); // get the user from the database
-  // console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥');
-  // console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥');
-  // console.log(user);
   // 3) If everything ok, send token to client
   // const correct = await user.correctPassword(password, user.password); // compare the password from the request body with the password from the database
   // // console.log(correct + ' ' + user);
