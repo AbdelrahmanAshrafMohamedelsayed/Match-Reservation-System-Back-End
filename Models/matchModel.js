@@ -20,9 +20,9 @@ const matchSchema = new mongoose.Schema({
       message: 'A match must have two different teams'
     }
   },
-  date: {
-    type: Date,
-    required: [true, 'A match must have a date']
+  timestamp: {
+    type: mongoose.Schema.Types.Timestamp,
+    required: [true, 'A match must have a date & time']
   },
   stadium: {
     type: mongoose.Schema.ObjectId,
@@ -36,11 +36,6 @@ const matchSchema = new mongoose.Schema({
       ref: 'Ticket'
     }
   ],
-  price: {
-    type: Number,
-    required: [true, 'A match must have a price'],
-    min: [0, 'A match price must be positive']
-  },
   referee: {
     type: mongoose.Schema.ObjectId,
     ref: 'Referee',

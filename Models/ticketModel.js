@@ -18,6 +18,11 @@ const ticketSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'Match',
     required: [true, 'A ticket must have an match']
+  },
+  price: {
+    type: Number,
+    required: [true, 'A ticket must have a price'],
+    min: [0, 'A ticket price must be positive']
   }
 });
 
