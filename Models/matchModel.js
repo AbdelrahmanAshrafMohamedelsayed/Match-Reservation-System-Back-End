@@ -15,14 +15,14 @@ const matchSchema = new mongoose.Schema({
     required: [true, 'A match must have an away team'],
     validate: {
       validator: function(value) {
-        return value !== this.homeTeam;
+        return String(value) !== String(this.homeTeam);
       },
       message: 'A match must have two different teams'
     }
   },
-  timestamp: {
-    type: mongoose.Schema.Types.Timestamp,
-    required: [true, 'A match must have a date & time']
+  date: {
+    type: Date,
+    required: [true, 'A match must have a date']
   },
   stadium: {
     type: mongoose.Schema.ObjectId,

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const MINIMUN_CAPACITY = 10000
 
 const stadiumSchema = new mongoose.Schema({
   name: {
@@ -16,7 +17,7 @@ const stadiumSchema = new mongoose.Schema({
   capacity: {
     type: Number,
     required: [true, 'A stadium must have a capacity'],
-    min: [0, 'A stadium capacity must be positive']
+    min: [MINIMUN_CAPACITY, `Minimum Stadium Capacity is ${MINIMUN_CAPACITY}`]
   },
   photo: {
     type: String,

@@ -1,13 +1,26 @@
 const express = require('express');
 const matchController = require('../controllers/matchController');
+const authController = require('../controllers/authControllers');
 
-const router = express.Router();
-router
+const matchRouter = express.Router();
+matchRouter.use(authController.protect);
+matchRouter.use(authController.restrictTo('admin', 'manager'));
+matchRouter
   .route('/')
   .get(matchController.getAllMatches)
+  
   .post(matchController.createMatch);
-router.route('/:id').get(matchController.getMatch);
+  matchRouter.route('/:id')
+  .get(matchController.getMatch)
+  .patch(matchController.updateMatch)
+  .delete(matchController.deleteMatch);
+  matchRouter.route('/reserved_seats/:id').get(matchController.getReservedSeats);
 
-router.route('/:id/reserve').post(matchController.reserveTicket);
-router.route('/:id/cancel').post(matchController.cancelTicket); // pay load {ticketId: 1}
-module.exports = router;
+matchRouter.route('/:id/reserve')   // :id = match id
+.all(authController.protect)    // only need for auth middleware,  no role check middleware
+.post(matchController.reserveTicket);
+
+matchRouter.route('/:id/cancel')  // :id = match id
+.all(authController.protect)
+.post(matchController.cancelTicket); // pay load {ticketId: 1}
+module.exports = matchRouter;
