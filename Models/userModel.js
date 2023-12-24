@@ -74,7 +74,9 @@ const userSchema = new mongoose.Schema({
   approved: {
     // this is used to approve new users as an authority.
     type: Boolean,
-    default: false,
+    default: function () {
+      return this.role === 'user' ? false : true;
+    },
   },
   gender: {
     type: String,
