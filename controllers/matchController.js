@@ -8,7 +8,7 @@ exports.getAllMatches = factory.getAll(Match);
 exports.getMatch = factory.getOne(Match);
 exports.updateMatch = factory.updateOne(Match);
 exports.deleteMatch = factory.deleteOne(Match);
-exports.getReservedSeats = factory.getOne(Match, ['tickets.seatNumber']);  // Mustafa // (not working ) will be finished later
+exports.getReservedSeats = factory.getOne(Match, ['tickets.seatNumber']);
 exports.createMatch = factory.createOne(Match);
 function checkSeats(seatNumbers, match) {
   const { tickets } = match;

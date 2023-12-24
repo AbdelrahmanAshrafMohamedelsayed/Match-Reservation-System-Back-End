@@ -3,12 +3,13 @@ const matchController = require('../controllers/matchController');
 const authController = require('../controllers/authControllers');
 
 const matchRouter = express.Router();
-matchRouter.use(authController.protect);
-matchRouter.use(authController.restrictTo('admin', 'manager'));
 matchRouter
   .route('/')
   .get(matchController.getAllMatches)
-  
+matchRouter.use(authController.protect);
+matchRouter.use(authController.restrictTo('admin', 'manager'));
+matchRouter
+  .route('/')  
   .post(matchController.createMatch);
   matchRouter.route('/:id')
   .get(matchController.getMatch)
