@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
 
 const matchSchema = new mongoose.Schema({
   homeTeam: {
-    type: mongoose.Schema.ObjectId,
+    type: String,
     ref: 'Team',
     required: [true, 'A match must have a home team']
   },
   awayTeam: {
-    type: mongoose.Schema.ObjectId,
+    type: String,
     ref: 'Team',
     required: [true, 'A match must have an away team'],
     validate: {
@@ -37,7 +37,7 @@ const matchSchema = new mongoose.Schema({
     }
   ],
   referee: {
-    type: mongoose.Schema.ObjectId,
+    type: String,
     ref: 'Referee',
     required: [true, 'A match must have a referee'],
     validate: {
@@ -48,7 +48,7 @@ const matchSchema = new mongoose.Schema({
     }
   },
   linesman1: {
-    type: mongoose.Schema.ObjectId,
+    type: String,
     ref: 'Referee',
     required: [true, 'A match must have a linesman1'],
     validate: {
@@ -59,7 +59,7 @@ const matchSchema = new mongoose.Schema({
     }
   },
   linesman2: {
-    type: mongoose.Schema.ObjectId,
+    type: String,
     ref: 'Referee',
     required: [true, 'A match must have a linesman2'],
     validate: {

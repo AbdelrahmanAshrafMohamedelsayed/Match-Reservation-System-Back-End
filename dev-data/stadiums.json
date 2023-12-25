@@ -1,0 +1,123 @@
+[
+    {
+      "name": "Cairo International Stadium",
+      "location": "Cairo, Egypt",
+      "capacity": 75000,
+      "photo": "cairo-stadium.jpg"
+    },
+    {
+      "name": "Borg El Arab Stadium",
+      "location": "Alexandria, Egypt",
+      "capacity": 86000,
+      "photo": "borg-el-arab.jpg"
+    },
+    {
+      "name": "Suez Canal Stadium",
+      "location": "Ismailia, Egypt",
+      "capacity": 30000,
+      "photo": "suez-canal-stadium.jpg"
+    },
+    {
+      "name": "Petroleum Stadium",
+      "location": "Suez, Egypt",
+      "capacity": 20000,
+      "photo": "petroleum-stadium.jpg"
+    },
+    {
+      "name": "Air Defense Stadium",
+      "location": "Cairo, Egypt",
+      "capacity": 30000,
+      "photo": "air-defense-stadium.jpg"
+    },
+    {
+      "name": "New Salam Stadium",
+      "location": "Cairo, Egypt",
+      "capacity": 22000,
+      "photo": "new-salam-stadium.jpg"
+    },
+    {
+      "name": "Military Academy Stadium",
+      "location": "Cairo, Egypt",
+      "capacity": 18000,
+      "photo": "military-academy-stadium.jpg"
+    },
+    {
+      "name": "Portsaid Stadium",
+      "location": "Port Said, Egypt",
+      "capacity": 18500,
+      "photo": "portsaid-stadium.jpg"
+    },
+    {
+      "name": "Ismailia Stadium",
+      "location": "Ismailia, Egypt",
+      "capacity": 16000,
+      "photo": "ismailia-stadium.jpg"
+    },
+    {
+      "name": "El Gouna Stadium",
+      "location": "El Gouna, Egypt",
+      "capacity": 13000,
+      "photo": "el-gouna-stadium.jpg"
+    },
+    {
+      "name": "Suez Stadium",
+      "location": "Suez, Egypt",
+      "capacity": 12000,
+      "photo": "suez-stadium.jpg"
+    },
+    {
+      "name": "Alexandria Stadium",
+      "location": "Alexandria, Egypt",
+      "capacity": 23000,
+      "photo": "alexandria-stadium.jpg"
+    },
+    {
+      "name": "Helwan Stadium",
+      "location": "Cairo, Egypt",
+      "capacity": 14000,
+      "photo": "helwan-stadium.jpg"
+    },
+    {
+      "name": "Aswan Stadium",
+      "location": "Aswan, Egypt",
+      "capacity": 11000,
+      "photo": "aswan-stadium.jpg"
+    },
+    {
+      "name": "Luxor Stadium",
+      "location": "Luxor, Egypt",
+      "capacity": 10000,
+      "photo": "luxor-stadium.jpg"
+    },
+    {
+      "name": "Red Sea Stadium",
+      "location": "Hurghada, Egypt",
+      "capacity": 17000,
+      "photo": "red-sea-stadium.jpg"
+    },
+    {
+      "name": "Minya Stadium",
+      "location": "Minya, Egypt",
+      "capacity": 15000,
+      "photo": "minya-stadium.jpg"
+    },
+    {
+      "name": "Beni Suef Stadium",
+      "location": "Beni Suef, Egypt",
+      "capacity": 12000,
+      "photo": "beni-suef-stadium.jpg"
+    },
+    {
+      "name": "Fayoum Stadium",
+      "location": "Fayoum, Egypt",
+      "capacity": 11000,
+      "photo": "fayoum-stadium.jpg"
+    },
+    {
+      "name": "Qena Stadium",
+      "location": "Qena, Egypt",
+      "capacity": 13000,
+      "photo": "qena-stadium.jpg"
+    }
+  ]
+  

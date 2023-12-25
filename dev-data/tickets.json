@@ -1,0 +1,26 @@
+[
+  {
+    "seatNumber": 101,
+    "user": "657b51835e7aa3210ca8b7f2",
+    "match": "657b643165cfab8ef28bb04b",
+    "price": 50
+  },
+  {
+    "seatNumber": 102,
+    "user": "657b5743c911547588d12200",
+    "match": "match2_id",
+    "price": 55
+  },
+  {
+    "seatNumber": 103,
+    "user": "65886811ff6c5c1400cf4b5c",
+    "match": "match3_id",
+    "price": 60
+  },
+  {
+    "seatNumber": 104,
+    "user": "6589c5d5a2e86b1dc37bb188",
+    "match": "match4_id",
+    "price": 45
+  }
+]

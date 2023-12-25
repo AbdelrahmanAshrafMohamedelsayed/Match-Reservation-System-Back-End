@@ -1,0 +1,33 @@
+[
+    {
+      "homeTeam": "Al Ahly SC",
+      "awayTeam": "Zamalek SC",
+      "date": "2024-01-01T18:00:00.000Z",
+      "stadium": "6589d09f0493aee268f93128",
+      "tickets": ["6589d2400493aee268f93146"],
+      "referee": "Ahmed",
+      "linesman1": "Muhammed",
+      "linesman2": "Abdo"
+    },
+    {
+      "homeTeam": "Ismaily SC",
+      "awayTeam": "Pyramids FC",
+      "date": "2024-02-01T19:30:00.000Z",
+      "stadium": "6589d09f0493aee268f93129", 
+      "tickets": ["6589d2400493aee268f93147"],
+      "referee": "Muhammed",
+      "linesman1": "Abdo",
+      "linesman2": "Hamada"
+    },
+    {
+      "homeTeam": "Al Masry SC",
+      "awayTeam": "ENPPI SC",
+      "date": "2024-03-01T20:15:00.000Z",
+      "stadium": "6589d09f0493aee268f9312a",
+      "tickets": ["6589d2400493aee268f93148", "6589d2400493aee268f9314a", "6589d2400493aee268f9314b"],
+      "referee": "Abdo",
+      "linesman1": "Hamada",
+      "linesman2": "Mustafa"
+    }
+  ]
+  
