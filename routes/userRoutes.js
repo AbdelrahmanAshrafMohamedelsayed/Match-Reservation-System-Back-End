@@ -15,10 +15,7 @@ userRouter.patch('/resetPassword/:token', authController.resetPassword); // rese
 userRouter.use(authController.protect);
 
 userRouter.route('/me').get(userController.getMe, userController.getUser); // get the current user
-userRouter.patch(
-  '/updateMe',
-  userController.updateMe
-); // update user
+userRouter.patch('/updateMe', userController.updateMe); // update user
 userRouter.delete('/deleteMe', userController.deleteMe); // delete user
 userRouter.patch('/updateMyPassword', authController.updatePassword); // update password
 
