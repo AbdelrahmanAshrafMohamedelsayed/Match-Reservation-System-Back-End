@@ -17,8 +17,6 @@ userRouter.use(authController.protect);
 userRouter.route('/me').get(userController.getMe, userController.getUser); // get the current user
 userRouter.patch(
   '/updateMe',
-  userController.uploadUserPhoto,
-  userController.resizeUserPhoto,
   userController.updateMe
 ); // update user
 userRouter.delete('/deleteMe', userController.deleteMe); // delete user

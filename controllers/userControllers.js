@@ -72,8 +72,6 @@ exports.getMe = (req, res, next) => {
   next();
 };
 exports.updateMe = catchAsync(async (req, res, next) => {
-  // console.log(req.file);
-  // console.log(req.body);
   // 1) Create error if user POSTs password data
   if (req.body.password || req.body.passwordConfirm) {
     next(
@@ -88,7 +86,8 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   // add the photo property to the filteredBody object if there is a file
   if (req.file) filteredBody.photo = req.file.filename;
   // 3) Update user document
-  const updatedUser = await User.findByIdAndUpdate(req.user._id, filteredBody, {
+  console.log('id', req.user._id, filteredBody)
+  const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body, {
     new: true, // return the new updated document
     runValidators: true // run the validators again
   });
