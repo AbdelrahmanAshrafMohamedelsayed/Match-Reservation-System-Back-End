@@ -9,7 +9,27 @@ exports.getMatch = factory.getOne(Match);
 exports.updateMatch = factory.updateOne(Match);
 exports.deleteMatch = factory.deleteOne(Match);
 exports.getReservedSeats = factory.getOne(Match, ['tickets.seatNumber']);
-exports.createMatch = factory.createOne(Match);
+exports.createMatch = catchAsync(async (req, res, next) => {
+  const existingMatch = await Match.findOne(req.body);
+
+  if (existingMatch) {
+    return res.status(401).json({
+      status: 'failed',
+      error: {
+        message: 'This match is already created.'
+      }
+    });
+  }
+
+  const newMatch = await Match.create(req.body);
+
+  res.status(201).json({
+    status: 'success',
+    data: {
+      match: newMatch
+    }
+  });
+});
 function checkSeats(seatNumbers, match) {
   const { tickets } = match;
   const reservedSeats = tickets.map(ticket => ticket.seatNumber);
