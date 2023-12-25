@@ -82,13 +82,6 @@ exports.cancelTicket = catchAsync(async (req, res, next) => {
   if (!ticket) {
     return next(new AppError('No ticket found with that ID', 404));
   }
-  //  check if the ticket is reserved
-  const isReserved = match.tickets.some(
-    tickety => tickety.id === ticketId && tickety.user.id === req.user.id
-  );
-  if (!isReserved) {
-    return next(new AppError('This ticket is not reserved by you', 400));
-  }
   //  delete the ticket
   await Ticket.findByIdAndDelete(ticketId);
   //  remove the ticket from the match
