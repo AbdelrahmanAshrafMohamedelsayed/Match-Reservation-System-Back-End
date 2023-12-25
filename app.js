@@ -13,6 +13,7 @@ const ErrorHandlingFunc = require('./controllers/errorControllers');
 const userRouter = require('./routes/userRoutes');
 const matchRouter = require('./routes/matchRoutes');
 const stadiumRouter = require('./routes/stadiumRoutes');
+const teamRouter = require('./routes/teamRoutes');
 
 // const corsOptions = {
 //   origin: '*',
@@ -106,6 +107,7 @@ app.use((req, res, next) => {
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/match', matchRouter);
 app.use('/api/v1/stadium', stadiumRouter);
+app.use('/api/v1/team', teamRouter);
 // 4) Handling Unhandled Routes
 app.all('*', (req, res, next) => {
   // res.status(404).json({
