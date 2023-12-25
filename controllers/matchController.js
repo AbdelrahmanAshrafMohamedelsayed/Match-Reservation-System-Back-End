@@ -55,8 +55,7 @@ exports.reserveTicket = catchAsync(async (req, res, next) => {
   const tickets = seatNumbers.map(seatNumber => ({
     seatNumber,
     user: req.user.id,
-    match: req.params.id,
-    price: req.body.price
+    match: req.params.id
   }));
   //  create the tickets
   const reservedTickets = await Ticket.create(tickets);

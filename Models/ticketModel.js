@@ -21,7 +21,6 @@ const ticketSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: [true, 'A ticket must have a price'],
     min: [0, 'A ticket price must be positive']
   }
 });
