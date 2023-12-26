@@ -7,6 +7,7 @@ matchRouter
   .route('/')
   .get(matchController.getAllMatches)
 matchRouter.use(authController.protect);
+matchRouter.route('/reserved_seats/:id').get(matchController.getReservedSeats);
 matchRouter.use(authController.restrictTo('admin', 'manager'));
 matchRouter
   .route('/')  
@@ -15,7 +16,6 @@ matchRouter
   .get(matchController.getMatch)
   .patch(matchController.updateMatch)
   .delete(matchController.deleteMatch);
-  matchRouter.route('/reserved_seats/:id').get(matchController.getReservedSeats);
 
 matchRouter.route('/:id/reserve')   // :id = match id
 .all(authController.protect)    // only need for auth middleware,  no role check middleware
