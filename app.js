@@ -53,7 +53,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 // Limit requests from same API (IP)
 const limiter = rateLimit({
-  max: 100, // 100 requests per hour
+  max: 10000000, // 100 requests per hour
   windowMs: 60 * 60 * 1000, // 1 hour
   message: 'Too many requests from this IP, please try again in an hour!' // error message
 });
